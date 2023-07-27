@@ -7,7 +7,6 @@ import film3 from "./img/film3.png"
 import film4 from "./img/film4.png"
 import film5 from "./img/film5.png"
 import film6 from "./img/film6.png"
-import title from "constants";
 
 const App = () => {
 
@@ -24,7 +23,6 @@ const App = () => {
 
     return (
         <div className='App'>
-            {title}
             <HeaderPanel/>
             <MainPage listOfFilms={listOfFilms} filmCounter={filmCounter}/>
         </div>

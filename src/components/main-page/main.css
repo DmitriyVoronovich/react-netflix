@@ -6,7 +6,7 @@
 
 .genres_line {
     position: absolute;
-    top: 465px;
+    top: 487px;
     margin: 0 0 0 57px;
     padding: 0;
     width: 1084px;
@@ -18,14 +18,4 @@
 .number_of_films {
     margin-left: 59px;
     margin-top: 24px;
-}
-
-.film_list {
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 28px;
-    margin-left: 59px;
-    margin-right: 57px;
 }

@@ -3,12 +3,10 @@ import FilmListItem from "../film-list-item";
 
 const FilmList = ({listOfFilms}) => {
 
-    const elements = listOfFilms.map((item) => {
-        const {id,...itemProps} = item;
-        return (
+    const elements = listOfFilms.map(({id, ...itemProps}) =>
+        (
             <FilmListItem key={id} {...itemProps} />
-        )
-    })
+        ))
 
     return (
         <>
