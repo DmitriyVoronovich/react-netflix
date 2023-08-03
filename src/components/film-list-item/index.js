@@ -2,7 +2,7 @@ import './film-list-item.css'
 import {Button} from "../index";
 import close from '../add-movie-form/add-form/img/CloseButton.png';
 
-const FilmListItem = ({img, name, year, genres}) => {
+const FilmListItem = ({img, name, year, genres, handleEdit, onDelete, handleInfo}) => {
 
     const buttonItem = {
         editButtonItem: {name: 'Edit', style: 'edit_button_item', id: 1},
@@ -10,12 +10,12 @@ const FilmListItem = ({img, name, year, genres}) => {
     }
 
     return (
-        <div className='film_item_container'>
-            <div class='film_item_button'>
-                <div class='film_button_container'>
+        <div className='film_item_container' onClick={handleInfo}>
+            <div className='film_item_button'>
+                <div className='film_button_container'>
                     <img src={close} className='menu_item_button'></img>
-                    <Button {...buttonItem.editButtonItem}/>
-                    <Button {...buttonItem.deleteButtonItem}/>
+                    <Button {...buttonItem.editButtonItem} onClick={handleEdit}/>
+                    <Button {...buttonItem.deleteButtonItem} onClick={onDelete}/>
                 </div>
             </div>
             <img className='film_item_img' src={img} alt='movie cover'/>

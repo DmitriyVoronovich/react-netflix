@@ -1,15 +1,24 @@
 import './add-module.css'
 import Logo from "../../logo";
 import {Footer} from "../../index";
-import AddContainer from "../add-container";
+import AddForm from "../add-form";
 
-const AddModule = ({addModuleInput, active, setActive, setModalActiveSuccess}) => {
+
+const AddModule = ({active, setActive, setModalActiveSuccess, onSubmit, setFilm, film, title}) => {
+
+
     return (
         <div className={active ? 'add_module active' : 'add_module'}>
-            <div class='logo_container'>
+            <div className='logo_container'>
                 <Logo/>
             </div>
-            <AddContainer addModuleInput={addModuleInput} setActive={setActive} onClick={(e) => e.stopPropagation()} setModalActiveSuccess={setModalActiveSuccess}/>
+            <AddForm setActive={setActive}
+                          onClick={(e) => e.stopPropagation()}
+                          setModalActiveSuccess={setModalActiveSuccess}
+                          setFilm={setFilm}
+                          film={film}
+                          onSubmit={onSubmit}
+                          title={title}/>
             <Footer/>
         </div>
     )

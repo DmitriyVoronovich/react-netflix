@@ -2,11 +2,12 @@
     width: 1200px;
     margin: 10px auto 0;
     background: #232323;
+    position: relative;
 }
 
 .genres_line {
     position: absolute;
-    top: 465px;
+    top: 60px;
     margin: 0 0 0 57px;
     padding: 0;
     width: 1084px;
