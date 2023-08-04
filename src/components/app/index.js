@@ -1,64 +1,86 @@
+import { useState } from 'react';
+import HeaderPanel from '../header-panel';
+import MainPage from '../main-page';
+import AddModule from '../add-movie-form/add-module';
+import SuccessModal from '../add-movie-form/success-modal';
+import DeleteModal from '../delete-modal';
+import FilmCardInformation from '../film-card-information';
+import { filmList, defaultFilm } from '../../const';
 import './App.css';
-import HeaderPanel from "../header-panel";
-import MainPage from "../main-page";
-import AddModule from "../add-movie-form/add-module";
-import SuccessModal from "../add-movie-form/success-modal";
-import DeleteModal from "../delete-modal";
-import {useState} from "react";
-import {filmList} from "../../const";
-import FilmCardInformation from "../film-card-information";
-
-const defaultFilm = {img: '', name: '', year: '', genres: ''};
 
 const App = () => {
-    const [modalActive, setModalActive] = useState(false);
-    const [modalActiveSuccess, setModalActiveSuccess] = useState(false);
-    const [modalActiveDelete, setModalActiveDelete] = useState(false);
-    const [modalActiveInfo, setModalActiveInfo] = useState(false);
-    const [film, setFilm] = useState(defaultFilm);
-    const [title, setTitle] = useState('');
-    const [films, setFilms] = useState(filmList);
+  const [isFilmFormOpen, setIsFilmFormOpen] = useState(false);
+  const [isMovieAdded, setIsMovieAdded] = useState(false);
+  const [isMovieDeleted, setIsMovieDeleted] = useState(false);
+  const [filmInfo, setFilmInfo] = useState(false);
+  const [film, setFilm] = useState(defaultFilm);
+  const [title, setTitle] = useState('');
+  const [films, setFilms] = useState(filmList);
 
-    const onSubmit = () => {
-        setFilms((prevFilms) => [...prevFilms, {...film, id:prevFilms.length + 1}]);
-        setFilm(defaultFilm);
-    }
+  const onSubmit = () => {
+    setFilms(prevFilms => [
+      ...prevFilms,
+      { ...film, id: prevFilms.length + 1 }
+    ]);
+    setFilm(defaultFilm);
+  };
 
-    const onDelete = (film) => {
-        setFilms(films.filter(item => item.id !== film.id));
-        setModalActiveDelete(true);
-    }
+  const onDelete = film => {
+    setFilms(films.filter(item => item.id !== film.id));
+    setIsMovieDeleted(true);
+  };
 
-    const onEdit = (editedFilm) => {
-        setFilm(editedFilm);
-        setModalActive(true);
-        setTitle('EDIT MOVIE');
-    }
+  const onEdit = editedFilm => {
+    setFilm(editedFilm);
+    setIsFilmFormOpen(false);
+    setTitle('EDIT MOVIE');
+  };
 
-    const receivingInfo = (receivingFilm) => {
-        setFilm(receivingFilm);
-        setModalActiveInfo(true);
-    }
+  const onShowFilmInfo = receivingFilm => {
+    setFilm(receivingFilm);
+    setFilmInfo(true);
+  };
 
-    const onAddFilm = () => {
-        setModalActive(true);
-        setTitle('ADD MOVIE');
-    }
+  const onAddFilm = () => {
+    setIsFilmFormOpen(true);
+    setTitle('ADD MOVIE');
+  };
 
-    const headerContent = modalActiveInfo ? <FilmCardInformation setModalActiveInfo={setModalActiveInfo} film={film}/> : <HeaderPanel onAddFilm={onAddFilm} />
+  const onCloseModal = () => {
+    setIsMovieAdded(false);
+  };
 
+  const headerContent = filmInfo ? (
+    <FilmCardInformation setFilmInfo={setFilmInfo} film={film} />
+  ) : (
+    <HeaderPanel onAddFilm={onAddFilm} />
+  );
 
-    const filmCounter = films.length;
-
-    return (
-        <div className='App'>
-            <SuccessModal setActiveSuccess={setModalActiveSuccess} active={modalActiveSuccess}/>
-            <AddModule active={modalActive} setActive={setModalActive} setModalActiveSuccess={setModalActiveSuccess} onSubmit={onSubmit} film={film} setFilm={setFilm} title={title}/>
-            <DeleteModal active={modalActiveDelete} setModalActiveDelete={setModalActiveDelete} film={film}/>
-            {headerContent}
-            <MainPage films={films} filmCounter={filmCounter} onEdit={onEdit} onDelete={onDelete} receivingInfo={receivingInfo}/>
-        </div>
-    );
-}
+  return (
+    <div className='App'>
+      {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
+      {isFilmFormOpen && (
+        <AddModule
+          setFormOpen={setIsFilmFormOpen}
+          setIsMovieAdded={setIsMovieAdded}
+          onSubmit={onSubmit}
+          film={film}
+          setFilm={setFilm}
+          title={title}
+        />
+      )}
+      {isMovieDeleted && (
+        <DeleteModal setIsMovieDeleted={setIsMovieDeleted} film={film} />
+      )}
+      {headerContent}
+      <MainPage
+        films={films}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        onShowFilmInfo={onShowFilmInfo}
+      />
+    </div>
+  );
+};
 
 export default App;

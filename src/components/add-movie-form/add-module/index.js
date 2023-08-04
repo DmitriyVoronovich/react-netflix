@@ -1,27 +1,33 @@
-import './add-module.css'
-import Logo from "../../logo";
-import {Footer} from "../../index";
-import AddForm from "../add-form";
+import './add-module.css';
+import Logo from '../../logo';
+import { Footer } from '../../index';
+import AddForm from '../add-form';
 
-
-const AddModule = ({active, setActive, setModalActiveSuccess, onSubmit, setFilm, film, title}) => {
-
-
-    return (
-        <div className={active ? 'add_module active' : 'add_module'}>
-            <div className='logo_container'>
-                <Logo/>
-            </div>
-            <AddForm setActive={setActive}
-                          onClick={(e) => e.stopPropagation()}
-                          setModalActiveSuccess={setModalActiveSuccess}
-                          setFilm={setFilm}
-                          film={film}
-                          onSubmit={onSubmit}
-                          title={title}/>
-            <Footer/>
-        </div>
-    )
-}
+const AddModule = ({
+  setFormOpen,
+  setIsMovieAdded,
+  onSubmit,
+  setFilm,
+  film,
+  title
+}) => {
+  return (
+    <div className='add_module'>
+      <div className='logo_container'>
+        <Logo />
+      </div>
+      <AddForm
+        setFormOpen={setFormOpen}
+        onClick={e => e.stopPropagation()}
+        setIsMovieAdded={setIsMovieAdded}
+        setFilm={setFilm}
+        film={film}
+        onSubmit={onSubmit}
+        title={title}
+      />
+      <Footer />
+    </div>
+  );
+};
 
 export default AddModule;
