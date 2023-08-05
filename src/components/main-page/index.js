@@ -1,8 +1,5 @@
+import { Footer, FilmList, NumberOfFilms, GenresMenu } from '../index';
 import './main.css';
-import GenresMenu from '../genres-menu';
-import NumberOfFilms from '../number-of-films';
-import FilmList from '../film-list';
-import { Footer } from '../index';
 
 const MainPage = ({ films, onEdit, onDelete, onShowFilmInfo }) => {
   const filmCounter = films.length;

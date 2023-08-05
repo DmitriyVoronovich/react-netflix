@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import HeaderPanel from '../header-panel';
-import MainPage from '../main-page';
-import AddModule from '../add-movie-form/add-module';
-import SuccessModal from '../add-movie-form/success-modal';
-import DeleteModal from '../delete-modal';
-import FilmCardInformation from '../film-card-information';
+import {
+  HeaderPanel,
+  MainPage,
+  FilmFormModule,
+  SuccessModal,
+  DeleteModal,
+  FilmCardInformation
+} from '../index';
 import { filmList, defaultFilm } from '../../const';
 import './App.css';
 
@@ -60,7 +62,7 @@ const App = () => {
     <div className='App'>
       {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
       {isFilmFormOpen && (
-        <AddModule
+        <FilmFormModule
           setFormOpen={setIsFilmFormOpen}
           setIsMovieAdded={setIsMovieAdded}
           onSubmit={onSubmit}

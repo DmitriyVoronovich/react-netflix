@@ -60,7 +60,7 @@
 
 .add_form_button {
   margin: 30.08px 0 0 925.1px;
-  background: url('../add-form/img/CloseButton.png');
+  background: url('./img/CloseButton.png');
   width: 20.77px;
   height: 20.77px;
   padding: 0;

@@ -1,9 +1,7 @@
-import './add-module.css';
-import Logo from '../../logo';
-import { Footer } from '../../index';
-import AddForm from '../add-form';
+import { Footer, Logo, MovieForm } from '../../index';
+import './film-form-module.css';
 
-const AddModule = ({
+const FilmFormModule = ({
   setFormOpen,
   setIsMovieAdded,
   onSubmit,
@@ -16,7 +14,7 @@ const AddModule = ({
       <div className='logo_container'>
         <Logo />
       </div>
-      <AddForm
+      <MovieForm
         setFormOpen={setFormOpen}
         onClick={e => e.stopPropagation()}
         setIsMovieAdded={setIsMovieAdded}
@@ -30,4 +28,4 @@ const AddModule = ({
   );
 };
 
-export default AddModule;
+export default FilmFormModule;

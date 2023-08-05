@@ -1,7 +1,6 @@
-import './success-modal.css';
-import Logo from '../../logo';
-import { Footer } from '../../index';
+import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
+import './success-modal.css';
 
 const SuccessModal = ({ onCloseModal }) => (
   <div className='success_modal_container'>

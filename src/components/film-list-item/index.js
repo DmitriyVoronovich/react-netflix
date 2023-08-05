@@ -1,7 +1,7 @@
-import './film-list-item.css';
 import { Button } from '../index';
-import close from '../add-movie-form/add-form/img/CloseButton.png';
+import close from '../film-movie-form/movie-form/img/CloseButton.png';
 import { buttonContent } from '../../const';
+import './film-list-item.css';
 
 const FilmListItem = ({
   img,

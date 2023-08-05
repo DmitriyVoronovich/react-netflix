@@ -1,7 +1,6 @@
-import './delete-modal.css';
-import Logo from '../logo';
-import { Button, Footer } from '../index';
+import { Button, Footer, Logo } from '../index';
 import { buttonContent } from '../../const';
+import './delete-modal.css';
 
 const DeleteModal = ({ setIsMovieDeleted }) => {
   return (

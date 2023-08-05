@@ -1,5 +1,5 @@
 import './footer.css';
-import Logo from '../logo';
+import { Logo } from '../index';
 
 const Footer = () => (
   <div className='footer'>

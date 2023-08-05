@@ -1,5 +1,5 @@
 import './film-list.css';
-import FilmListItem from '../film-list-item';
+import { FilmListItem } from '../index';
 
 const FilmList = ({ films, onEdit, onDelete, onShowFilmInfo }) => {
   const elements = films.map(film => {

@@ -1,9 +1,8 @@
-import './add-form.css';
-import { Button } from '../../index';
-import FilmFormInputList from '../film-form-input-list';
+import { Button, FilmFormInputList } from '../../index';
 import { buttonContent } from '../../../const';
+import './movie-form.css';
 
-const AddForm = ({
+const MovieForm = ({
   setFormOpen,
   setIsMovieAdded,
   setFilm,
@@ -32,4 +31,4 @@ const AddForm = ({
     </div>
   );
 };
-export default AddForm;
+export default MovieForm;
