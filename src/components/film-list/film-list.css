@@ -1,9 +1,9 @@
 .film_list {
-    display: flex;
-    justify-content: space-between;
-    align-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 28px;
-    margin-left: 59px;
-    margin-right: 57px;
+  display: flex;
+  justify-content: start;
+  gap: 55px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  margin-left: 59px;
+  margin-right: 57px;
 }

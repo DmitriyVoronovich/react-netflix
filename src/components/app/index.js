@@ -1,32 +1,88 @@
+import { useState } from 'react';
+import {
+  HeaderPanel,
+  MainPage,
+  FilmFormModule,
+  SuccessModal,
+  DeleteModal,
+  FilmCardInformation
+} from '../index';
+import { filmList, defaultFilm } from '../../const';
 import './App.css';
-import HeaderPanel from "../header-panel";
-import MainPage from "../main-page";
-import film1 from "./img/film1.png"
-import film2 from "./img/film2.png"
-import film3 from "./img/film3.png"
-import film4 from "./img/film4.png"
-import film5 from "./img/film5.png"
-import film6 from "./img/film6.png"
 
 const App = () => {
+  const [isFilmFormOpen, setIsFilmFormOpen] = useState(false);
+  const [isMovieAdded, setIsMovieAdded] = useState(false);
+  const [isMovieDeleted, setIsMovieDeleted] = useState(false);
+  const [filmInfo, setFilmInfo] = useState(false);
+  const [film, setFilm] = useState(defaultFilm);
+  const [title, setTitle] = useState('');
+  const [films, setFilms] = useState(filmList);
 
-    const listOfFilms = [
-        {img: film1, name: 'Pulp Fiction', year: '2004', genres: 'Action & Adventure', id: 1},
-        {img: film2, name: 'Bohemian Rhapsody', year: '2003', genres: 'Drama, Biography, Music', id: 2},
-        {img: film3, name: 'Kill Bill: Vol 2', year: '1994', genres: 'Oscar winning Movie', id: 3},
-        {img: film4, name: 'Avengers: War of Infinity', year: '2004', genres: 'Action & Adventure', id: 4},
-        {img: film5, name: 'Inception', year: '2003', genres: 'Action & Adventure', id: 5},
-        {img: film6, name: 'Reservoir dogs', year: '1994', genres: 'Oscar winning Movie', id: 6}
-    ]
+  const onSubmit = () => {
+    setFilms(prevFilms => [
+      ...prevFilms,
+      { ...film, id: prevFilms.length + 1 }
+    ]);
+    setFilm(defaultFilm);
+  };
 
-    const filmCounter = listOfFilms.length;
+  const onDelete = film => {
+    setFilms(films.filter(item => item.id !== film.id));
+    setIsMovieDeleted(true);
+  };
 
-    return (
-        <div className='App'>
-            <HeaderPanel/>
-            <MainPage listOfFilms={listOfFilms} filmCounter={filmCounter}/>
-        </div>
-    );
-}
+  const onEdit = editedFilm => {
+    setFilm(editedFilm);
+    setIsFilmFormOpen(true);
+    setTitle('EDIT MOVIE');
+  };
+
+  const onShowFilmInfo = receivingFilm => {
+    setFilm(receivingFilm);
+    setFilmInfo(true);
+  };
+
+  const onAddFilm = () => {
+    setIsFilmFormOpen(true);
+    setTitle('ADD MOVIE');
+  };
+
+  const onCloseModal = () => {
+    setIsMovieAdded(false);
+  };
+
+  const headerContent = filmInfo ? (
+    <FilmCardInformation setFilmInfo={setFilmInfo} film={film} />
+  ) : (
+    <HeaderPanel onAddFilm={onAddFilm} />
+  );
+
+  return (
+    <div className='App'>
+      {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
+      {isFilmFormOpen && (
+        <FilmFormModule
+          setFormOpen={setIsFilmFormOpen}
+          setIsMovieAdded={setIsMovieAdded}
+          onSubmit={onSubmit}
+          film={film}
+          setFilm={setFilm}
+          title={title}
+        />
+      )}
+      {isMovieDeleted && (
+        <DeleteModal setIsMovieDeleted={setIsMovieDeleted} film={film} />
+      )}
+      {headerContent}
+      <MainPage
+        films={films}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        onShowFilmInfo={onShowFilmInfo}
+      />
+    </div>
+  );
+};
 
 export default App;

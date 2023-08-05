@@ -1,0 +1,108 @@
+.film_form_input_list {
+  width: 859px;
+  margin: 38px auto 0;
+  display: grid;
+  grid-template-areas: 'a b' 'c d' 'e f' 'h h';
+  gap: 30px;
+}
+
+.input_name {
+  color: #f65261;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.889px;
+  text-transform: uppercase;
+  opacity: 0.800000011920929;
+}
+
+.input_style {
+  height: 57px;
+  border-radius: 4px;
+  opacity: 0.8030970692634583;
+  background: rgba(50, 50, 50, 0.95);
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 13px;
+}
+
+.title {
+  width: 507px;
+  flex-shrink: 0;
+  grid-area: a;
+}
+
+.title::placeholder {
+  padding: 17px 0 16px 18px;
+}
+
+.url {
+  width: 506px;
+  flex-shrink: 0;
+  grid-area: c;
+}
+
+.url::placeholder {
+  padding: 18px 0 15px 18px;
+}
+
+.genre {
+  width: 507px;
+  grid-area: e;
+}
+.genre::placeholder {
+  padding: 18px 0 15px 18px;
+}
+
+.date {
+  width: 282px;
+  grid-area: b;
+}
+
+.date::placeholder {
+  padding: 17px 0 16px 19px;
+}
+
+.rating {
+  width: 283px;
+  grid-area: d;
+}
+
+.rating::placeholder {
+  padding: 16px 0 17px 18px;
+}
+
+.runtime {
+  width: 283px;
+  grid-area: f;
+}
+
+.runtime::placeholder {
+  padding: 16px 0 17px 18px;
+}
+
+.overview {
+  width: 841px;
+  height: 197px;
+  grid-area: h;
+}
+
+.overview::placeholder {
+  padding: 18px 0 0 18px;
+}
+
+option {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  opacity: 0.8008;
+}
