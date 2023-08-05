@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Button, Footer, Logo } from '../index';
 import { buttonContent } from '../../const';
 import './delete-modal.css';
 
 const DeleteModal = ({ setIsMovieDeleted }) => {
+  useEffect(() => {
+    document.body.style.overflow = `hidden`;
+  });
+
   return (
     <div className='delete_modal_container'>
       <div className='logo_container'>
@@ -10,7 +15,10 @@ const DeleteModal = ({ setIsMovieDeleted }) => {
       </div>
       <button
         className='add_form_buttons'
-        onClick={() => setIsMovieDeleted(false)}
+        onClick={() => {
+          setIsMovieDeleted(false);
+          document.body.style.overflow = `visible`;
+        }}
       ></button>
       <div className='delete_modal'>
         <h1 className='delete_modal_title'>Delete MOVIE</h1>

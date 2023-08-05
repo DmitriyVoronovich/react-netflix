@@ -34,7 +34,7 @@ const App = () => {
 
   const onEdit = editedFilm => {
     setFilm(editedFilm);
-    setIsFilmFormOpen(false);
+    setIsFilmFormOpen(true);
     setTitle('EDIT MOVIE');
   };
 

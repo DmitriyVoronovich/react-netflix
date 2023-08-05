@@ -24,6 +24,13 @@
   height: 24px;
 }
 
+.heard_panel a {
+  grid-area: b;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: 56px;
+}
+
 .add_button {
   margin-left: auto;
   grid-area: b;

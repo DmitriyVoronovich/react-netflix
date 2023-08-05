@@ -4,8 +4,13 @@ import Button from '../button';
 import { buttonContent } from '../../const';
 
 import './header-panel.css';
+import { useEffect } from 'react';
 
 const HeaderPanel = ({ onAddFilm }) => {
+  useEffect(() => {
+    document.body.style.overflow = `visible`;
+  });
+
   return (
     <div className='heard_panel_background'>
       <div className='heard_panel'>
