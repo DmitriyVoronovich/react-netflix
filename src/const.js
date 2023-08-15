@@ -70,7 +70,15 @@ But no amount of planning or skill can prepare a team to face a dangerous foe th
   }
 ];
 
-export const defaultFilm = { img: '', name: '', year: '', genres: '' };
+export const defaultFilm = {
+  img: '',
+  name: '',
+  year: '',
+  genres: '',
+  rating: 0,
+  time: '',
+  description: ''
+};
 
 export const buttonContent = {
   resetButton: { name: 'RESET', className: 'reset_button', type: 'reset' },
@@ -82,3 +90,48 @@ export const buttonContent = {
   editButtonItem: { name: 'Edit', className: 'edit_button_item' },
   deleteButtonItem: { name: 'Delete', className: 'delete_button_item' }
 };
+
+export const inputInfo = [
+  {
+    id: 1,
+    name: 'name',
+    type: 'text',
+    label: 'TITLE',
+    placeholder: 'Enter movie title'
+  },
+  {
+    id: 2,
+    name: 'img',
+    type: 'url',
+    label: 'MOVIE URL',
+    placeholder: 'https://'
+  },
+  {
+    id: 3,
+    name: 'year',
+    type: 'date',
+    label: 'RELEASE DATE',
+    placeholder: 'Select Date'
+  },
+  {
+    id: 4,
+    name: 'rating',
+    type: 'number',
+    label: 'RATING',
+    placeholder: 'Enter movie rating'
+  },
+  {
+    id: 5,
+    name: 'time',
+    type: 'text',
+    label: 'RUNTIME',
+    placeholder: 'minutes'
+  },
+  {
+    id: 6,
+    name: 'description',
+    as: 'textarea',
+    label: 'OVERVIEW',
+    placeholder: 'Movie description'
+  }
+];
