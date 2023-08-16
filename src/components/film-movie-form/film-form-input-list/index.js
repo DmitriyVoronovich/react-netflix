@@ -11,7 +11,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     setFilm(changedFilm);
   };
 
-  const first = inputInfo.slice(0, 2).map(ip => {
+  const firstPart = inputInfo.slice(0, 2).map(ip => {
     const { id, ...itemProps } = ip;
 
     return (
@@ -23,7 +23,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     );
   });
 
-  const second = inputInfo.slice(2).map(ip => {
+  const secondPart = inputInfo.slice(2).map(ip => {
     const { id, ...itemProps } = ip;
 
     return (
@@ -35,14 +35,20 @@ const FilmFormInputList = ({ setFilm, film }) => {
     );
   });
 
-  const DisplayingErrorMessagesSchema = Yup.object().shape({
-    name: Yup.string().min(2, 'Минимум 2 символа для заполнения'),
-    img: Yup.string().url(),
-    genres: Yup.string(),
-    year: Yup.date(),
-    rating: Yup.number().max(10, 'Максимальный рейтинг фильма 10'),
-    time: Yup.string(),
-    description: Yup.string().max(300, 'Не более 300 символов')
+  const SignupSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required'),
+    rating: Yup.number()
+      .min(0, 'Less then min value!')
+      .max(10, 'More then max value!')
+      .required('Required'),
+    img: Yup.string().required('Required'),
+    time: Yup.number().min(0, 'Too low!').required('Required'),
+    year: Yup.string().required('Required'),
+    genres: Yup.array().min(1, 'Less then min value!').required('Required'),
+    description: Yup.string().required('Required')
   });
 
   return (
@@ -53,14 +59,14 @@ const FilmFormInputList = ({ setFilm, film }) => {
         genres: '',
         year: '',
         rating: 0,
-        time: '',
+        time: 0,
         description: ''
       }}
-      validationSchema={DisplayingErrorMessagesSchema}
+      validationSchema={SignupSchema}
       onSubmit={values => console.log(JSON.stringify(values, null, 2))}
     >
       <Form className='film_form_input_list'>
-        {first}
+        {firstPart}
         <div className='input_container genres'>
           <label htmlFor='genres' className='input_name'>
             GENRE
@@ -80,7 +86,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
           </Field>
           <ErrorMessage component='div' className='error' name='genres' />
         </div>
-        {second}
+        {secondPart}
       </Form>
     </Formik>
   );
