@@ -1,8 +1,9 @@
 import './film-form-input-list.css';
 import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
 import * as Yup from 'yup';
-import MyTextInput from './inputeText';
-import { inputInfo } from '../../../const';
+import TextInput from './textInput';
+import { inputInfo } from '../../../constants/const';
+import SelectInput from './selectInput';
 
 const FilmFormInputList = ({ setFilm, film }) => {
   const handleInputChange = (e, fieldName) => {
@@ -15,7 +16,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     const { id, ...itemProps } = ip;
 
     return (
-      <MyTextInput
+      <TextInput
         key={id}
         {...itemProps}
         handleInputChange={handleInputChange}
@@ -27,7 +28,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     const { id, ...itemProps } = ip;
 
     return (
-      <MyTextInput
+      <TextInput
         key={id}
         {...itemProps}
         handleInputChange={handleInputChange}
@@ -67,25 +68,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     >
       <Form className='film_form_input_list'>
         {firstPart}
-        <div className='input_container genres'>
-          <label htmlFor='genres' className='input_name'>
-            GENRE
-          </label>
-          <Field
-            name='genres'
-            className='input_style genres'
-            value={film.genres}
-            onChange={e => handleInputChange(e, 'genres')}
-            as='select'
-          >
-            <option value=''>Select Genre</option>
-            <option value='Crime'>Crime</option>
-            <option value='Documentary'>Documentary</option>
-            <option value='Crime'>Horror</option>
-            <option value='Comedy'>Crime</option>
-          </Field>
-          <ErrorMessage component='div' className='error' name='genres' />
-        </div>
+        <SelectInput handleInputChange={handleInputChange} film={film} />
         {secondPart}
       </Form>
     </Formik>

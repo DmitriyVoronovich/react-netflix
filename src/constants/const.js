@@ -1,9 +1,9 @@
-import film1 from './components/app/img/film1.png';
-import film2 from './components/app/img/film2.png';
-import film3 from './components/app/img/film3.png';
-import film4 from './components/app/img/film4.png';
-import film5 from './components/app/img/film5.png';
-import film6 from './components/app/img/film6.png';
+import film1 from '../components/app/img/film1.png';
+import film2 from '../components/app/img/film2.png';
+import film3 from '../components/app/img/film3.png';
+import film4 from '../components/app/img/film4.png';
+import film5 from '../components/app/img/film5.png';
+import film6 from '../components/app/img/film6.png';
 
 export const filmList = [
   {

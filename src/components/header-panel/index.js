@@ -1,7 +1,7 @@
 import Logo from '../logo';
 import SearchPanel from '../search-panel';
 import Button from '../button';
-import { buttonContent } from '../../const';
+import { buttonContent } from '../../constants/const';
 
 import './header-panel.css';
 import { useEffect } from 'react';

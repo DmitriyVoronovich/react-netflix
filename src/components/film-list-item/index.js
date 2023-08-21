@@ -1,6 +1,6 @@
 import { Button } from '../index';
 import close from '../film-movie-form/movie-form/img/CloseButton.png';
-import { buttonContent } from '../../const';
+import { buttonContent } from '../../constants/const';
 import './film-list-item.css';
 
 const FilmListItem = ({
