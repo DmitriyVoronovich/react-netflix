@@ -19,15 +19,22 @@ const MenuProps = {
     }
   }
 };
-const genres = ['Crime', 'Documentary', 'Horror', 'Comedy'];
-const SelectInput = () => {
-  const [personName, setPersonName] = React.useState([]);
+const genres = [
+  'Action & Adventure',
+  'Drama',
+  'Horror',
+  'Comedy',
+  'Biography',
+  'Oscar winning Movie'
+];
+const SelectInput = ({ filmGenres }) => {
+  const [genreName, setGenreName] = React.useState([filmGenres]);
 
   const handleChange = event => {
     const {
       target: { value }
     } = event;
-    setPersonName(typeof value === 'string' ? value.split(',') : value);
+    setGenreName(typeof value === 'string' ? value.split(',') : value);
   };
 
   return (
@@ -42,7 +49,7 @@ const SelectInput = () => {
           labelId='demo-multiple-checkbox-label'
           id='demo-multiple-checkbox'
           multiple
-          value={personName}
+          value={genreName}
           onChange={handleChange}
           input={<OutlinedInput label='Select Genre' />}
           renderValue={selected => selected.join(', ')}
@@ -54,7 +61,7 @@ const SelectInput = () => {
               value={name}
               style={{ color: '#fff', background: 'rgba(35, 35, 35, 0.92)' }}
             >
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={genreName.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}

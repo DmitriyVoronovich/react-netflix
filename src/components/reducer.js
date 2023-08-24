@@ -4,10 +4,9 @@ export const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case 'delete':
-      const newFilms = state.films.filter(item => item.id !== payload);
       return {
         ...state,
-        films: newFilms,
+        films: state.films.filter(item => item.id !== payload),
         isMovieDeleted: !state.isMovieDeleted
       };
     case 'close_success_modal':
@@ -16,14 +15,25 @@ export const reducer = (state, action) => {
         ...state,
         isMovieAdded: false
       };
-    case 'submit':
-      const newFilmsArray = prevFilms => [
-        ...prevFilms,
-        { ...state.film, id: prevFilms.length + 1 }
-      ];
+    case 'close_movie_form':
       return {
         ...state,
-        films: newFilmsArray,
+        isFilmFormOpen: false
+      };
+    case 'close_info':
+      return {
+        ...state,
+        filmInfo: false
+      };
+    case 'submit':
+      const isFilmExist = state.films.some(item => item.id === payload.id);
+      return {
+        ...state,
+        isMovieAdded: true,
+        isFilmFormOpen: false,
+        films: isFilmExist
+          ? state.films.map(item => (item.id === payload.id ? payload : item))
+          : [...state.films, { ...payload, id: state.films.length + 1 }],
         film: defaultFilm
       };
     case 'form':
@@ -36,7 +46,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         film: payload,
-        filmInfo: !state.filmInfo
+        filmInfo: true
       };
     case 'edit':
       return {

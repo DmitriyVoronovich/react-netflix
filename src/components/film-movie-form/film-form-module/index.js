@@ -7,7 +7,7 @@ const FilmFormModule = () => {
       <div className='logo_container'>
         <Logo />
       </div>
-      <MovieForm onClick={e => e.stopPropagation()} />
+      <MovieForm />
       <Footer />
     </div>
   );

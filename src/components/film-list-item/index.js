@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from '../context';
 
 const FilmListItem = film => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const { id, img, name, year, genres } = film;
   const onDelete = () => {
     dispatch({

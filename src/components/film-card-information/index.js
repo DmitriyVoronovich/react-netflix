@@ -4,11 +4,13 @@ import './film-card-information.css';
 import { AppContext } from '../context';
 
 const FilmCardInformation = () => {
-  const { state } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   const { img, name, year, genres, rating, time, description } = state.film;
 
   const closeInfo = () => {
-    return { ...state, filmInfo: false };
+    dispatch({
+      type: 'close_info'
+    });
   };
 
   return (

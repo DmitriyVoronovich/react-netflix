@@ -2,18 +2,18 @@ import './film-form-input-list.css';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import TextInput from './textInput';
-import { inputInfo } from '../../../constants/const';
+import { defaultFilm, inputInfo } from '../../../constants/const';
 import SelectInput from './selectInput';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AppContext } from '../../context';
 
-const FilmFormInputList = () => {
+const FilmFormInputList = ({ film, setFilm }) => {
   const { state } = useContext(AppContext);
 
   const handleInputChange = (e, fieldName) => {
-    const changedFilm = { ...state.film };
+    const changedFilm = { ...film };
     changedFilm[fieldName] = e.target.value;
-    state.film(changedFilm);
+    setFilm(changedFilm);
   };
 
   const firstPart = inputInfo.slice(0, 2).map(ip => {
@@ -22,6 +22,7 @@ const FilmFormInputList = () => {
     return (
       <TextInput
         key={id}
+        value={film[itemProps.name]}
         {...itemProps}
         handleInputChange={handleInputChange}
       />
@@ -35,6 +36,7 @@ const FilmFormInputList = () => {
       <TextInput
         key={id}
         {...itemProps}
+        value={film[itemProps.name]}
         handleInputChange={handleInputChange}
       />
     );
@@ -72,7 +74,10 @@ const FilmFormInputList = () => {
     >
       <Form className='film_form_input_list'>
         {firstPart}
-        <SelectInput handleInputChange={handleInputChange} />
+        <SelectInput
+          handleInputChange={handleInputChange}
+          filmGenres={film.genres}
+        />
         {secondPart}
       </Form>
     </Formik>
