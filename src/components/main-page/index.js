@@ -1,20 +1,18 @@
 import { Footer, FilmList, NumberOfFilms, GenresMenu } from '../index';
 import './main.css';
+import { useContext } from 'react';
+import { AppContext } from '../context';
 
-const MainPage = ({ films, onEdit, onDelete, onShowFilmInfo }) => {
-  const filmCounter = films.length;
+const MainPage = () => {
+  const { state, dispatch } = useContext(AppContext);
+  const filmCounter = state.films.length;
 
   return (
     <div className='main'>
       <GenresMenu />
       <div className='genres_line'></div>
       <NumberOfFilms filmCounter={filmCounter} />
-      <FilmList
-        films={films}
-        onEdit={onEdit}
-        onDelete={onDelete}
-        onShowFilmInfo={onShowFilmInfo}
-      />
+      <FilmList />
       <Footer />
     </div>
   );

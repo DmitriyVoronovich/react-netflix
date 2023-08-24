@@ -25,23 +25,3 @@ const TextInput = ({ label, ...props }) => {
 };
 
 export default TextInput;
-
-// <div className='input_container genres'>
-//     <label htmlFor='genres' className='input_name'>
-//         GENRE
-//     </label>
-//     <Field
-//         name='genres'
-//         className='input_style genres'
-//         value={film.genres}
-//         onChange={e => handleInputChange(e, 'genres')}
-//         as='select'
-//     >
-//         <option value=''>Select Genre</option>
-//         <option value='Crime'>Crime</option>
-//         <option value='Documentary'>Documentary</option>
-//         <option value='Crime'>Horror</option>
-//         <option value='Comedy'>Crime</option>
-//     </Field>
-//     <ErrorMessage component='div' className='error' name='genres' />
-// </div>

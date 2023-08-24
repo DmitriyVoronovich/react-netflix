@@ -1,12 +1,21 @@
 import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
 import './success-modal.css';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { AppContext } from '../../context';
 
-const SuccessModal = ({ onCloseModal }) => {
+const SuccessModal = () => {
+  const { state, dispatch } = useContext(AppContext);
+
   useEffect(() => {
     document.body.style.overflow = `hidden`;
   });
+
+  const onCloseModal = () => {
+    dispatch({
+      type: 'close_success_modal'
+    });
+  };
 
   return (
     <div className='success_modal_container'>

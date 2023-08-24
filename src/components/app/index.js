@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { useReducer } from 'react';
 import {
   HeaderPanel,
   MainPage,
@@ -7,89 +7,30 @@ import {
   DeleteModal,
   FilmCardInformation
 } from '../index';
-import { filmList, defaultFilm } from '../../constants/const';
 import './App.css';
+import { defaultState, init } from '../context';
+import { reducer } from '../reducer';
+import { AppContext } from '../context';
 
 const App = () => {
-  const [isFilmFormOpen, setIsFilmFormOpen] = useState(false);
-  const [isMovieAdded, setIsMovieAdded] = useState(false);
-  const [isMovieDeleted, setIsMovieDeleted] = useState(false);
-  const [filmInfo, setFilmInfo] = useState(false);
-  const [film, setFilm] = useState(defaultFilm);
-  const [title, setTitle] = useState('');
-  const [films, setFilms] = useState(filmList);
+  const [state, dispatch] = useReducer(reducer, defaultState, init);
 
-  export const MainPageContext = useState({
-    onEdit: onEdit,
-    onDelete: onDelete,
-    onShowFilmInfo: onShowFilmInfo
-  });
-
-  const onSubmit = () => {
-    setFilms(prevFilms => [
-      ...prevFilms,
-      { ...film, id: prevFilms.length + 1 }
-    ]);
-    setFilm(defaultFilm);
-  };
-
-  const onDelete = film => {
-    setFilms(films.filter(item => item.id !== film.id));
-    setIsMovieDeleted(true);
-  };
-
-  const onEdit = editedFilm => {
-    setFilm(editedFilm);
-    setIsFilmFormOpen(true);
-    setTitle('EDIT MOVIE');
-  };
-
-  const onShowFilmInfo = receivingFilm => {
-    setFilm(receivingFilm);
-    setFilmInfo(true);
-  };
-
-  const onAddFilm = () => {
-    setIsFilmFormOpen(true);
-    setTitle('ADD MOVIE');
-  };
-
-  const onCloseModal = () => {
-    setIsMovieAdded(false);
-  };
-
-  const headerContent = filmInfo ? (
-    <FilmCardInformation setFilmInfo={setFilmInfo} film={film} />
+  const headerContent = state.filmInfo ? (
+    <FilmCardInformation />
   ) : (
-    <HeaderPanel onAddFilm={onAddFilm} />
+    <HeaderPanel />
   );
 
   return (
-    <MainPageContext.Provider value={MainPageContext}>
-      <div className='App'>
-        {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
-        {isFilmFormOpen && (
-          <FilmFormModule
-            setFormOpen={setIsFilmFormOpen}
-            setIsMovieAdded={setIsMovieAdded}
-            onSubmit={onSubmit}
-            film={film}
-            setFilm={setFilm}
-            title={title}
-          />
-        )}
-        {isMovieDeleted && (
-          <DeleteModal setIsMovieDeleted={setIsMovieDeleted} film={film} />
-        )}
+    <div className='App'>
+      <AppContext.Provider value={{ state, dispatch }}>
+        {state.isMovieAdded && <SuccessModal />}
+        {state.isFilmFormOpen && <FilmFormModule />}
+        {state.isMovieDeleted && <DeleteModal />}
         {headerContent}
-        <MainPage
-          films={films}
-          onEdit={onEdit}
-          onDelete={onDelete}
-          onShowFilmInfo={onShowFilmInfo}
-        />
-      </div>
-    </MainPageContext.Provider>
+        <MainPage />
+      </AppContext.Provider>
+    </div>
   );
 };
 

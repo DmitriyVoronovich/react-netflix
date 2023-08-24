@@ -3,7 +3,6 @@ import React from 'react';
 import {
   Checkbox,
   FormControl,
-  InputLabel,
   ListItemText,
   MenuItem,
   OutlinedInput,
@@ -21,7 +20,7 @@ const MenuProps = {
   }
 };
 const genres = ['Crime', 'Documentary', 'Horror', 'Comedy'];
-const SelectInput = ({ handleInputChange }) => {
+const SelectInput = () => {
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = event => {

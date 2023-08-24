@@ -4,12 +4,21 @@ import Button from '../button';
 import { buttonContent } from '../../constants/const';
 
 import './header-panel.css';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { AppContext } from '../context';
 
-const HeaderPanel = ({ onAddFilm }) => {
+const HeaderPanel = () => {
+  const { state, dispatch } = useContext(AppContext);
+
   useEffect(() => {
     document.body.style.overflow = `visible`;
   });
+
+  const onAddFilm = () => {
+    dispatch({
+      type: 'form'
+    });
+  };
 
   return (
     <div className='heard_panel_background'>

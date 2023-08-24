@@ -1,19 +1,12 @@
 import './film-list.css';
 import { FilmListItem } from '../index';
+import { useContext } from 'react';
+import { AppContext } from '../context';
 
-const FilmList = ({ films, onEdit, onDelete, onShowFilmInfo }) => {
-  const elements = films.map(film => {
-    const { id, ...itemProps } = film;
-
-    return (
-      <FilmListItem
-        key={id}
-        {...itemProps}
-        handleEdit={() => onEdit(film)}
-        onDelete={() => onDelete(film)}
-        handleInfo={() => onShowFilmInfo(film)}
-      />
-    );
+const FilmList = () => {
+  const { state } = useContext(AppContext);
+  const elements = state.films.map(film => {
+    return <FilmListItem key={film.id} {...film} />;
   });
 
   return <div className='film_list'>{elements}</div>;

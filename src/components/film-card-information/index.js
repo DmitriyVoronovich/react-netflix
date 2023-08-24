@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../logo';
 import './film-card-information.css';
+import { AppContext } from '../context';
 
-const FilmCardInformation = ({ film, setFilmInfo }) => {
-  const { img, name, year, genres, rating, time, description } = film;
+const FilmCardInformation = () => {
+  const { state } = useContext(AppContext);
+  const { img, name, year, genres, rating, time, description } = state.film;
+
+  const closeInfo = () => {
+    return { ...state, filmInfo: false };
+  };
 
   return (
     <div className='card_module'>
       <div className='logo_container'>
         <Logo />
       </div>
-      <button
-        className='card_button'
-        onClick={() => setFilmInfo(false)}
-      ></button>
+      <button className='card_button' onClick={closeInfo}></button>
       <div className='card_container'>
         <img className='card_img' src={img} alt='Обложка фильма' />
         <div className='card_info_container'>

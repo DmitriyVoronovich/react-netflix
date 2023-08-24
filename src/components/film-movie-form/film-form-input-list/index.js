@@ -1,15 +1,19 @@
 import './film-form-input-list.css';
-import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import TextInput from './textInput';
 import { inputInfo } from '../../../constants/const';
 import SelectInput from './selectInput';
+import { useContext } from 'react';
+import { AppContext } from '../../context';
 
-const FilmFormInputList = ({ setFilm, film }) => {
+const FilmFormInputList = () => {
+  const { state } = useContext(AppContext);
+
   const handleInputChange = (e, fieldName) => {
-    const changedFilm = { ...film };
+    const changedFilm = { ...state.film };
     changedFilm[fieldName] = e.target.value;
-    setFilm(changedFilm);
+    state.film(changedFilm);
   };
 
   const firstPart = inputInfo.slice(0, 2).map(ip => {
@@ -68,7 +72,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     >
       <Form className='film_form_input_list'>
         {firstPart}
-        <SelectInput handleInputChange={handleInputChange} film={film} />
+        <SelectInput handleInputChange={handleInputChange} />
         {secondPart}
       </Form>
     </Formik>
