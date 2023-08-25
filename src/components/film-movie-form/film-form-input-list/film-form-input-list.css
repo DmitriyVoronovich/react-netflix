@@ -32,40 +32,40 @@
   margin-top: 13px;
 }
 
-.title {
+.name {
   width: 507px;
   flex-shrink: 0;
   grid-area: a;
 }
 
-.title::placeholder {
+.name::placeholder {
   padding: 17px 0 16px 18px;
 }
 
-.url {
+.img {
   width: 506px;
   flex-shrink: 0;
   grid-area: c;
 }
 
-.url::placeholder {
+.img::placeholder {
   padding: 18px 0 15px 18px;
 }
 
-.genre {
+.genres {
   width: 507px;
   grid-area: e;
 }
-.genre::placeholder {
+.genres::placeholder {
   padding: 18px 0 15px 18px;
 }
 
-.date {
+.year {
   width: 282px;
   grid-area: b;
 }
 
-.date::placeholder {
+.year::placeholder {
   padding: 17px 0 16px 19px;
 }
 
@@ -78,22 +78,21 @@
   padding: 16px 0 17px 18px;
 }
 
-.runtime {
+.time {
   width: 283px;
   grid-area: f;
 }
 
-.runtime::placeholder {
+.time::placeholder {
   padding: 16px 0 17px 18px;
 }
-
-.overview {
+.description {
   width: 841px;
   height: 197px;
   grid-area: h;
 }
 
-.overview::placeholder {
+.description::placeholder {
   padding: 18px 0 0 18px;
 }
 
@@ -105,4 +104,8 @@ option {
   font-weight: 400;
   line-height: normal;
   opacity: 0.8008;
+}
+
+.error {
+  color: #f65261;
 }

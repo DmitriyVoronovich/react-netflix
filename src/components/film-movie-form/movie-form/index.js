@@ -1,5 +1,5 @@
 import { Button, FilmFormInputList } from '../../index';
-import { buttonContent } from '../../../const';
+import { buttonContent } from '../../../constants/const';
 import './movie-form.css';
 
 const MovieForm = ({

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import {
   HeaderPanel,
   MainPage,
@@ -7,7 +7,7 @@ import {
   DeleteModal,
   FilmCardInformation
 } from '../index';
-import { filmList, defaultFilm } from '../../const';
+import { filmList, defaultFilm } from '../../constants/const';
 import './App.css';
 
 const App = () => {
@@ -18,6 +18,12 @@ const App = () => {
   const [film, setFilm] = useState(defaultFilm);
   const [title, setTitle] = useState('');
   const [films, setFilms] = useState(filmList);
+
+  export const MainPageContext = useState({
+    onEdit: onEdit,
+    onDelete: onDelete,
+    onShowFilmInfo: onShowFilmInfo
+  });
 
   const onSubmit = () => {
     setFilms(prevFilms => [
@@ -59,29 +65,31 @@ const App = () => {
   );
 
   return (
-    <div className='App'>
-      {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
-      {isFilmFormOpen && (
-        <FilmFormModule
-          setFormOpen={setIsFilmFormOpen}
-          setIsMovieAdded={setIsMovieAdded}
-          onSubmit={onSubmit}
-          film={film}
-          setFilm={setFilm}
-          title={title}
+    <MainPageContext.Provider value={MainPageContext}>
+      <div className='App'>
+        {isMovieAdded && <SuccessModal onCloseModal={onCloseModal} />}
+        {isFilmFormOpen && (
+          <FilmFormModule
+            setFormOpen={setIsFilmFormOpen}
+            setIsMovieAdded={setIsMovieAdded}
+            onSubmit={onSubmit}
+            film={film}
+            setFilm={setFilm}
+            title={title}
+          />
+        )}
+        {isMovieDeleted && (
+          <DeleteModal setIsMovieDeleted={setIsMovieDeleted} film={film} />
+        )}
+        {headerContent}
+        <MainPage
+          films={films}
+          onEdit={onEdit}
+          onDelete={onDelete}
+          onShowFilmInfo={onShowFilmInfo}
         />
-      )}
-      {isMovieDeleted && (
-        <DeleteModal setIsMovieDeleted={setIsMovieDeleted} film={film} />
-      )}
-      {headerContent}
-      <MainPage
-        films={films}
-        onEdit={onEdit}
-        onDelete={onDelete}
-        onShowFilmInfo={onShowFilmInfo}
-      />
-    </div>
+      </div>
+    </MainPageContext.Provider>
   );
 };
 

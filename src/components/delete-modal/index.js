@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Button, Footer, Logo } from '../index';
-import { buttonContent } from '../../const';
+import { buttonContent } from '../../constants/const';
 import './delete-modal.css';
 
 const DeleteModal = ({ setIsMovieDeleted }) => {
