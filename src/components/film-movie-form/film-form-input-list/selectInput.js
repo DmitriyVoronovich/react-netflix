@@ -1,4 +1,4 @@
-import './film-form-input-list.css';
+import './style.css';
 import React from 'react';
 import {
   Checkbox,

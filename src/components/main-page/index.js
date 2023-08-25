@@ -1,5 +1,5 @@
 import { Footer, FilmList, NumberOfFilms, GenresMenu } from '../index';
-import './main.css';
+import './style.css';
 import { useContext } from 'react';
 import { AppContext } from '../context';
 

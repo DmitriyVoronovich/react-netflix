@@ -1,4 +1,4 @@
-import './film-list.css';
+import './style.css';
 import { FilmListItem } from '../index';
 import { useContext } from 'react';
 import { AppContext } from '../context';

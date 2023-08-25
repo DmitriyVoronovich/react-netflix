@@ -7,7 +7,7 @@ import {
   DeleteModal,
   FilmCardInformation
 } from '../index';
-import './App.css';
+import './style.css';
 import { defaultState, init } from '../context';
 import { reducer } from '../reducer';
 import { AppContext } from '../context';

@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Button, Footer, Logo } from '../index';
 import { buttonContent } from '../../constants/const';
-import './delete-modal.css';
+import './style.css';
 import { AppContext } from '../context';
 
 const DeleteModal = () => {

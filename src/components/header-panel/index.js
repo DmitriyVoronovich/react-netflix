@@ -3,7 +3,7 @@ import SearchPanel from '../search-panel';
 import Button from '../button';
 import { buttonContent } from '../../constants/const';
 
-import './header-panel.css';
+import './style.css';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../context';
 

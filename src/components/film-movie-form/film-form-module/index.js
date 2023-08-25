@@ -1,5 +1,5 @@
 import { Footer, Logo, MovieForm } from '../../index';
-import './film-form-module.css';
+import './style.css';
 
 const FilmFormModule = () => {
   return (

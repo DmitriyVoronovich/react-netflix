@@ -1,4 +1,4 @@
-import './sort-panel.css';
+import './style.css';
 
 import imageSort from './Fill1.png';
 

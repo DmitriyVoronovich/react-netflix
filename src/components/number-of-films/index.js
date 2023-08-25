@@ -1,4 +1,4 @@
-import './number_of_films.css';
+import './style.css';
 
 const NumberOfFilms = ({ filmCounter }) => (
   <div className='number_of_films'>

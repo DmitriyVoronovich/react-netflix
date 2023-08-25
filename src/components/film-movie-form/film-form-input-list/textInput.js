@@ -1,4 +1,4 @@
-import './film-form-input-list.css';
+import './style.css';
 import { useField } from 'formik';
 
 const TextInput = ({ label, ...props }) => {

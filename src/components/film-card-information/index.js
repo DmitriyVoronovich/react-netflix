@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Logo from '../logo';
-import './film-card-information.css';
+import './style.css';
 import { AppContext } from '../context';
 
 const FilmCardInformation = () => {

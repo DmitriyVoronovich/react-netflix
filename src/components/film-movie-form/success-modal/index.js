@@ -1,6 +1,6 @@
 import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
-import './success-modal.css';
+import './style.css';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../../context';
 

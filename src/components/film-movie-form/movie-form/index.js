@@ -1,6 +1,6 @@
 import { Button, FilmFormInputList } from '../../index';
 import { buttonContent, defaultFilm } from '../../../constants/const';
-import './movie-form.css';
+import './style.css';
 import { useContext, useState } from 'react';
 import { AppContext } from '../../context';
 
