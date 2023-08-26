@@ -14,6 +14,7 @@ import { AppContext } from '../context';
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState, init);
+  const { isMovieAdded, isFilmFormOpen, isMovieDeleted, filmInfo } = state;
 
   // const getAllMovies = (url, method, data) => {
   //   return fetch(url);
@@ -41,10 +42,10 @@ const App = () => {
   return (
     <div className='App'>
       <AppContext.Provider value={{ state, dispatch }}>
-        {state.isMovieAdded && <SuccessModal />}
-        {state.isFilmFormOpen && <FilmFormModule />}
-        {state.isMovieDeleted && <DeleteModal />}
-        {state.filmInfo ? <FilmCardInformation /> : <HeaderPanel />}
+        {isMovieAdded && <SuccessModal />}
+        {isFilmFormOpen && <FilmFormModule />}
+        {isMovieDeleted && <DeleteModal />}
+        {filmInfo ? <FilmCardInformation /> : <HeaderPanel />}
         <MainPage />
       </AppContext.Provider>
     </div>

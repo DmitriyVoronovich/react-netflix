@@ -6,7 +6,7 @@ import { AppContext } from '../../context';
 import { dispatcherTypes } from '../../../constants/const';
 
 const SuccessModal = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
   useEffect(() => {

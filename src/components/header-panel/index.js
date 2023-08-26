@@ -8,7 +8,7 @@ import { useContext, useEffect } from 'react';
 import { AppContext } from '../context';
 
 const HeaderPanel = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const { FORM } = dispatcherTypes;
 
   useEffect(() => {

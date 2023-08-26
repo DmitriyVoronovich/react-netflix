@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AppContext } from '../context';
 
 const MainPage = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const filmCounter = state.films.length;
 
   return (
