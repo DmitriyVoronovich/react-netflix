@@ -4,9 +4,9 @@ import './style.css';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../../context';
 import { dispatcherTypes } from '../../../constants/const';
-const { dispatch } = useContext(AppContext);
 
 const SuccessModal = () => {
+  const { dispatch } = useContext(AppContext);
   const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
   useEffect(() => {
