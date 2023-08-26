@@ -3,19 +3,20 @@ import suc from './img/group.png';
 import './style.css';
 import { useContext, useEffect } from 'react';
 import { AppContext } from '../../context';
+import { dispatcherTypes } from '../../../constants/const';
 
 const SuccessModal = () => {
   const { state, dispatch } = useContext(AppContext);
+  const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
   useEffect(() => {
     document.body.style.overflow = `hidden`;
-  });
+  }, []);
 
-  const onCloseModal = () => {
+  const onCloseModal = () =>
     dispatch({
-      type: 'close_success_modal'
+      type: CLOSE_SUCCESS_MODAL
     });
-  };
 
   return (
     <div className='success_modal_container'>

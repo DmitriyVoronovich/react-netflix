@@ -8,6 +8,7 @@ import {
   OutlinedInput,
   Select
 } from '@mui/material';
+import { genres } from '../../../constants/const';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,14 +20,7 @@ const MenuProps = {
     }
   }
 };
-const genres = [
-  'Action & Adventure',
-  'Drama',
-  'Horror',
-  'Comedy',
-  'Biography',
-  'Oscar winning Movie'
-];
+
 const SelectInput = ({ filmGenres }) => {
   const [genreName, setGenreName] = React.useState([filmGenres]);
 

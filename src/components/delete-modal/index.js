@@ -1,21 +1,18 @@
 import { useContext, useEffect } from 'react';
 import { Button, Footer, Logo } from '../index';
-import { buttonContent } from '../../constants/const';
+import { buttonContent, dispatcherTypes } from '../../constants/const';
 import './style.css';
 import { AppContext } from '../context';
 
 const DeleteModal = () => {
   const { dispatch } = useContext(AppContext);
+  const { CLOSE_DELETE_MODAL } = dispatcherTypes;
 
   useEffect(() => {
     document.body.style.overflow = `hidden`;
   });
 
-  const handleDelete = () => {
-    dispatch({
-      type: 'close_delete_modal'
-    });
-  };
+  const handleDelete = () => dispatch({ type: CLOSE_DELETE_MODAL });
 
   return (
     <div className='delete_modal_container'>

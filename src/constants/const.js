@@ -135,3 +135,24 @@ export const inputInfo = [
     placeholder: 'Movie description'
   }
 ];
+
+export const genres = [
+  'Action & Adventure',
+  'Drama',
+  'Horror',
+  'Comedy',
+  'Biography',
+  'Oscar winning Movie'
+];
+
+export const dispatcherTypes = {
+  DELETE: 'delete',
+  CLOSE_MOVIE_FORM: 'close_movie_form',
+  CLOSE_SUCCESS_MODAL: 'close_success_modal',
+  CLOSE_INFO: 'close_info',
+  SUBMIT: 'submit',
+  FORM: 'form',
+  INFO: 'info',
+  EDIT: 'edit',
+  CLOSE_DELETE_MODAL: 'close_delete_modal'
+};

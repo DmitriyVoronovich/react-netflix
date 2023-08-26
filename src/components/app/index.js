@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import {
   HeaderPanel,
   MainPage,
@@ -15,11 +15,28 @@ import { AppContext } from '../context';
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState, init);
 
-  const headerContent = state.filmInfo ? (
-    <FilmCardInformation />
-  ) : (
-    <HeaderPanel />
-  );
+  // const getAllMovies = (url, method, data) => {
+  //   return fetch(url);
+  // };
+  //
+  // useEffect(() => {
+  //   getAllMovies('http://localhost:4000/movies', 'GET')
+  //     .then(data => {
+  //       return data.json();
+  //     })
+  //     .then(response => console.log(response))
+  //     .catch(error => console.log(error));
+  // });
+
+  // useEffect(() => {
+  //   fetch('http://localhost:4000/movies')
+  //     .then(response => {
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       console.log(data);
+  //     });
+  // });
 
   return (
     <div className='App'>
@@ -27,7 +44,7 @@ const App = () => {
         {state.isMovieAdded && <SuccessModal />}
         {state.isFilmFormOpen && <FilmFormModule />}
         {state.isMovieDeleted && <DeleteModal />}
-        {headerContent}
+        {state.filmInfo ? <FilmCardInformation /> : <HeaderPanel />}
         <MainPage />
       </AppContext.Provider>
     </div>

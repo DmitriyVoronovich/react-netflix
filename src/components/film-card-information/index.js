@@ -2,16 +2,14 @@ import React, { useContext } from 'react';
 import Logo from '../logo';
 import './style.css';
 import { AppContext } from '../context';
+import { dispatcherTypes } from '../../constants/const';
 
 const FilmCardInformation = () => {
   const { state, dispatch } = useContext(AppContext);
   const { img, name, year, genres, rating, time, description } = state.film;
+  const { CLOSE_INFO } = dispatcherTypes;
 
-  const closeInfo = () => {
-    dispatch({
-      type: 'close_info'
-    });
-  };
+  const closeInfo = () => dispatch({ type: CLOSE_INFO });
 
   return (
     <div className='card_module'>

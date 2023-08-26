@@ -1,6 +1,6 @@
 import { Button } from '../index';
 import close from '../film-movie-form/movie-form/img/CloseButton.png';
-import { buttonContent } from '../../constants/const';
+import { buttonContent, dispatcherTypes } from '../../constants/const';
 import './style.css';
 import { useContext } from 'react';
 import { AppContext } from '../context';
@@ -8,26 +8,24 @@ import { AppContext } from '../context';
 const FilmListItem = film => {
   const { dispatch } = useContext(AppContext);
   const { id, img, name, year, genres } = film;
-  const onDelete = () => {
+  const { DELETE, EDIT, INFO } = dispatcherTypes;
+  const onDelete = () =>
     dispatch({
-      type: 'delete',
+      type: DELETE,
       payload: id
     });
-  };
 
-  const handleInfo = () => {
+  const handleInfo = () =>
     dispatch({
-      type: 'info',
+      type: INFO,
       payload: film
     });
-  };
 
-  const handleEdit = () => {
+  const handleEdit = () =>
     dispatch({
-      type: 'edit',
+      type: EDIT,
       payload: film
     });
-  };
 
   return (
     <div className='film_item_container' onClick={handleInfo}>
