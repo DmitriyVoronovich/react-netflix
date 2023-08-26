@@ -16,29 +16,6 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState, init);
   const { isMovieAdded, isFilmFormOpen, isMovieDeleted, filmInfo } = state;
 
-  // const getAllMovies = (url, method, data) => {
-  //   return fetch(url);
-  // };
-  //
-  // useEffect(() => {
-  //   getAllMovies('http://localhost:4000/movies', 'GET')
-  //     .then(data => {
-  //       return data.json();
-  //     })
-  //     .then(response => console.log(response))
-  //     .catch(error => console.log(error));
-  // });
-
-  // useEffect(() => {
-  //   fetch('http://localhost:4000/movies')
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // });
-
   return (
     <div className='App'>
       <AppContext.Provider value={{ state, dispatch }}>
