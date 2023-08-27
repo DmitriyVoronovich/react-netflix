@@ -1,61 +1,74 @@
 import { defaultFilm } from '../constants/const';
+import { dispatcherTypes } from '../constants/const';
 
 export const reducer = (state, action) => {
+  const { isMovieDeleted, films } = state;
+  const {
+    DELETE,
+    CLOSE_MOVIE_FORM,
+    CLOSE_SUCCESS_MODAL,
+    CLOSE_INFO,
+    SUBMIT,
+    FORM,
+    INFO,
+    EDIT,
+    CLOSE_DELETE_MODAL
+  } = dispatcherTypes;
   const { type, payload } = action;
   switch (type) {
-    case 'delete':
+    case DELETE:
       return {
         ...state,
         films: state.films.filter(item => item.id !== payload),
-        isMovieDeleted: !state.isMovieDeleted
+        isMovieDeleted: !isMovieDeleted
       };
-    case 'close_success_modal':
+    case CLOSE_SUCCESS_MODAL:
       document.body.style.overflow = `visible`;
       return {
         ...state,
         isMovieAdded: false
       };
-    case 'close_movie_form':
+    case CLOSE_MOVIE_FORM:
       return {
         ...state,
         isFilmFormOpen: false
       };
-    case 'close_info':
+    case CLOSE_INFO:
       return {
         ...state,
         filmInfo: false
       };
-    case 'submit':
-      const isFilmExist = state.films.some(item => item.id === payload.id);
+    case SUBMIT:
+      const isFilmExist = films.some(item => item.id === payload.id);
       return {
         ...state,
         isMovieAdded: true,
         isFilmFormOpen: false,
         films: isFilmExist
-          ? state.films.map(item => (item.id === payload.id ? payload : item))
-          : [...state.films, { ...payload, id: state.films.length + 1 }],
+          ? films.map(item => (item.id === payload.id ? payload : item))
+          : [...films, { ...payload, id: films.length + 1 }],
         film: defaultFilm
       };
-    case 'form':
+    case FORM:
       return {
         ...state,
         isFilmFormOpen: true,
         title: 'ADD MOVIE'
       };
-    case 'info':
+    case INFO:
       return {
         ...state,
         film: payload,
         filmInfo: true
       };
-    case 'edit':
+    case EDIT:
       return {
         ...state,
         film: payload,
         title: 'EDIT MOVIE',
         isFilmFormOpen: true
       };
-    case 'close_delete_modal':
+    case CLOSE_DELETE_MODAL:
       document.body.style.overflow = `visible`;
       return {
         ...state,

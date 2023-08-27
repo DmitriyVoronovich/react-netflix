@@ -5,7 +5,9 @@ import { AppContext } from '../context';
 
 const FilmList = () => {
   const { state } = useContext(AppContext);
-  const elements = state.films.map(film => {
+  const { films } = state;
+
+  const elements = films.map(film => {
     return <FilmListItem key={film.id} {...film} />;
   });
 

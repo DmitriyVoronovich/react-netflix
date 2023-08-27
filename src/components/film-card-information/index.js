@@ -6,7 +6,8 @@ import { dispatcherTypes } from '../../constants/const';
 
 const FilmCardInformation = () => {
   const { state, dispatch } = useContext(AppContext);
-  const { img, name, year, genres, rating, time, description } = state.film;
+  const { film } = state;
+  const { img, name, year, genres, rating, time, description } = film;
   const { CLOSE_INFO } = dispatcherTypes;
 
   const closeInfo = () => dispatch({ type: CLOSE_INFO });

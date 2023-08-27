@@ -5,7 +5,9 @@ import { AppContext } from '../context';
 
 const MainPage = () => {
   const { state } = useContext(AppContext);
-  const filmCounter = state.films.length;
+  const { films } = state;
+
+  const filmCounter = films.length;
 
   return (
     <div className='main'>
