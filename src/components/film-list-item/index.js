@@ -3,12 +3,13 @@ import close from '../film-movie-form/movie-form/img/CloseButton.png';
 import { buttonContent, dispatcherTypes } from '../../constants/const';
 import './style.css';
 import { useContext } from 'react';
-import { AppContext } from '../context';
+import { AppContext } from 'context/context';
+const { DELETE, EDIT, INFO } = dispatcherTypes;
 
 const FilmListItem = film => {
   const { dispatch } = useContext(AppContext);
   const { id, img, name, year, genres } = film;
-  const { DELETE, EDIT, INFO } = dispatcherTypes;
+
   const onDelete = () =>
     dispatch({
       type: DELETE,

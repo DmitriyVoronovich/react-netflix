@@ -1,4 +1,4 @@
-import { defaultFilm, filmList } from '../constants/const';
+import { defaultFilm, filmList } from 'constants/const';
 import { createContext } from 'react';
 
 export const defaultState = {

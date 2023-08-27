@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { Button, Footer, Logo } from '../index';
-import { buttonContent, dispatcherTypes } from '../../constants/const';
+import { buttonContent, dispatcherTypes } from 'constants/const';
 import './style.css';
-import { AppContext } from '../context';
+import { AppContext } from 'context/context';
+const { CLOSE_DELETE_MODAL } = dispatcherTypes;
 
 const DeleteModal = () => {
   const { dispatch } = useContext(AppContext);
-  const { CLOSE_DELETE_MODAL } = dispatcherTypes;
 
   useEffect(() => {
     document.body.style.overflow = `hidden`;

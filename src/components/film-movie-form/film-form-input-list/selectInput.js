@@ -8,7 +8,7 @@ import {
   OutlinedInput,
   Select
 } from '@mui/material';
-import { genres } from '../../../constants/const';
+import { genres } from 'constants/const';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

@@ -1,7 +1,7 @@
 import './style.css';
 import { FilmListItem } from '../index';
 import { useContext } from 'react';
-import { AppContext } from '../context';
+import { AppContext } from 'context/context';
 
 const FilmList = () => {
   const { state } = useContext(AppContext);

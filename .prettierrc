@@ -14,7 +14,7 @@
     "^(react|redux)(.*)",
     "<THIRD_PARTY_MODULES>",
     "components(.*)",
-    "context(.*)",
+    "constant(.*)",
     "^[./]"
   ],
   "importOrderSeparation": false

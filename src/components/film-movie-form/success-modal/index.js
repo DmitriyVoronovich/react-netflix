@@ -2,12 +2,12 @@ import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
 import './style.css';
 import { useContext, useEffect } from 'react';
-import { AppContext } from '../../context';
-import { dispatcherTypes } from '../../../constants/const';
+import { AppContext } from 'context/context';
+import { dispatcherTypes } from 'constants/const';
+const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
 const SuccessModal = () => {
   const { dispatch } = useContext(AppContext);
-  const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
   useEffect(() => {
     document.body.style.overflow = `hidden`;

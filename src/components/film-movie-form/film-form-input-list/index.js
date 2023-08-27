@@ -2,7 +2,7 @@ import './style.css';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import TextInput from './textInput';
-import { inputInfo } from '../../../constants/const';
+import { inputInfo } from 'constants/const';
 import SelectInput from './selectInput';
 
 const FilmFormInputList = ({ film, setFilm }) => {

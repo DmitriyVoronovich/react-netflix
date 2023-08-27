@@ -1,7 +1,7 @@
 import { Footer, FilmList, NumberOfFilms, GenresMenu } from '../index';
 import './style.css';
 import { useContext } from 'react';
-import { AppContext } from '../context';
+import { AppContext } from 'context/context';
 
 const MainPage = () => {
   const { state } = useContext(AppContext);

@@ -1,16 +1,16 @@
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 import {
+  DeleteModal,
+  FilmCardInformation,
+  FilmFormModule,
   HeaderPanel,
   MainPage,
-  FilmFormModule,
-  SuccessModal,
-  DeleteModal,
-  FilmCardInformation
+  SuccessModal
 } from '../index';
+import { defaultState, init } from 'context/context';
+import { reducer } from 'context/reducer';
+import { AppContext } from 'context/context';
 import './style.css';
-import { defaultState, init } from '../context';
-import { reducer } from '../reducer';
-import { AppContext } from '../context';
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState, init);
