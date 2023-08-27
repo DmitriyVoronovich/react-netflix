@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import { dispatcherTypes } from 'constants/const';
+import { AppContext } from 'context/context';
 import Logo from '../logo';
 import './style.css';
-import { AppContext } from 'context/context';
-import { dispatcherTypes } from 'constants/const';
+
 const { CLOSE_INFO } = dispatcherTypes;
 
 const FilmCardInformation = () => {

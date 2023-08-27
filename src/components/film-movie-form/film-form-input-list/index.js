@@ -1,9 +1,9 @@
-import './style.css';
+import { inputInfo } from 'constants/const';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import TextInput from './textInput';
-import { inputInfo } from 'constants/const';
 import SelectInput from './selectInput';
+import './style.css';
+import TextInput from './textInput';
 
 const FilmFormInputList = ({ film, setFilm }) => {
   const handleInputChange = (e, fieldName) => {

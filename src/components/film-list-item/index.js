@@ -1,9 +1,10 @@
-import { Button } from '../index';
-import close from '../film-movie-form/movie-form/img/CloseButton.png';
-import { buttonContent, dispatcherTypes } from '../../constants/const';
-import './style.css';
 import { useContext } from 'react';
+import { buttonContent, dispatcherTypes } from 'constants/const';
 import { AppContext } from 'context/context';
+import close from '../film-movie-form/movie-form/img/CloseButton.png';
+import { Button } from '../index';
+import './style.css';
+
 const { DELETE, EDIT, INFO } = dispatcherTypes;
 
 const FilmListItem = film => {

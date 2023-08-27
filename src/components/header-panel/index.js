@@ -1,10 +1,11 @@
+import { useContext, useEffect } from 'react';
+import { buttonContent, dispatcherTypes } from 'constants/const';
+import { AppContext } from 'context/context';
+import Button from '../button';
 import Logo from '../logo';
 import SearchPanel from '../search-panel';
-import Button from '../button';
-import { buttonContent, dispatcherTypes } from 'constants/const';
 import './style.css';
-import { useContext, useEffect } from 'react';
-import { AppContext } from 'context/context';
+
 const { FORM } = dispatcherTypes;
 
 const HeaderPanel = () => {

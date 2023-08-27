@@ -1,9 +1,10 @@
+import { useContext, useEffect } from 'react';
+import { dispatcherTypes } from 'constants/const';
+import { AppContext } from 'context/context';
 import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
 import './style.css';
-import { useContext, useEffect } from 'react';
-import { AppContext } from 'context/context';
-import { dispatcherTypes } from 'constants/const';
+
 const { CLOSE_SUCCESS_MODAL } = dispatcherTypes;
 
 const SuccessModal = () => {

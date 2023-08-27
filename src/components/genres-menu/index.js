@@ -1,5 +1,5 @@
-import './style.css';
 import { SortPanel } from '../index';
+import './style.css';
 
 const GenresMenu = () => (
   <div className='genres_menu'>

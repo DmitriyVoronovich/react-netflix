@@ -1,4 +1,6 @@
 import { useReducer } from 'react';
+import { AppContext, defaultState, init } from 'context/context';
+import { reducer } from 'context/reducer';
 import {
   DeleteModal,
   FilmCardInformation,
@@ -7,9 +9,6 @@ import {
   MainPage,
   SuccessModal
 } from '../index';
-import { defaultState, init } from 'context/context';
-import { reducer } from 'context/reducer';
-import { AppContext } from 'context/context';
 import './style.css';
 
 const App = () => {

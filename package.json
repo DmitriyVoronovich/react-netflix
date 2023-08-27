@@ -18,17 +18,10 @@
     "yup": "^1.2.0"
   },
   "scripts": {
-    "cs": "vendor/bin/phpcs --standard=WordPress .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run cs",
-      "pre-push": "npm run cs"
-    }
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +42,7 @@
     ]
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "prettier": "3.0.1"
   }
 }

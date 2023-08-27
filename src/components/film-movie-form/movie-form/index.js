@@ -1,8 +1,9 @@
-import { Button, FilmFormInputList } from '../../index';
-import { buttonContent, dispatcherTypes } from 'constants/const';
-import './style.css';
 import { useContext, useState } from 'react';
+import { buttonContent, dispatcherTypes } from 'constants/const';
 import { AppContext } from 'context/context';
+import { Button, FilmFormInputList } from '../../index';
+import './style.css';
+
 const { SUBMIT, CLOSE_MOVIE_FORM } = dispatcherTypes;
 
 const MovieForm = () => {

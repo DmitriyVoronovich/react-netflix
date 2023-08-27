@@ -1,4 +1,3 @@
-import './style.css';
 import React from 'react';
 import {
   Checkbox,
@@ -9,6 +8,7 @@ import {
   Select
 } from '@mui/material';
 import { genres } from 'constants/const';
+import './style.css';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
