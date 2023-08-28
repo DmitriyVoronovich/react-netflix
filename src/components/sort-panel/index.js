@@ -1,6 +1,5 @@
-import './sort-panel.css';
-
 import imageSort from './Fill1.png';
+import './style.css';
 
 const SortPanel = () => (
   <div className='sort_panel'>

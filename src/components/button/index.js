@@ -1,5 +1,4 @@
-import './button.css';
-import { useEffect } from 'react';
+import './style.css';
 
 const Button = ({ name, className, type, onClick }) => (
   <a href='#'>

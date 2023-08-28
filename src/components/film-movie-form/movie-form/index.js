@@ -1,30 +1,32 @@
+import { useContext, useState } from 'react';
+import { buttonContent, dispatcherTypes } from 'consts';
+import { AppContext } from 'context';
 import { Button, FilmFormInputList } from '../../index';
-import { buttonContent } from '../../../constants/const';
-import './movie-form.css';
+import './style.css';
 
-const MovieForm = ({
-  setFormOpen,
-  setIsMovieAdded,
-  setFilm,
-  film,
-  onSubmit,
-  title
-}) => {
-  const handleClick = () => {
-    setIsMovieAdded(true);
-    setFormOpen(false);
-    onSubmit();
-  };
+const { SUBMIT, CLOSE_MOVIE_FORM } = dispatcherTypes;
+
+const MovieForm = () => {
+  const { state, dispatch } = useContext(AppContext);
+  const [film, setFilm] = useState(state.film);
+
+  const handleClick = () =>
+    dispatch({
+      type: SUBMIT,
+      payload: film
+    });
+
+  const closeForm = () =>
+    dispatch({
+      type: CLOSE_MOVIE_FORM
+    });
 
   return (
     <div className='add_container'>
       <div className='add_form'>
-        <button
-          className='add_form_button'
-          onClick={() => setFormOpen(false)}
-        ></button>
-        <h1 className='add_form_title'>{title}</h1>
-        <FilmFormInputList setFilm={setFilm} film={film} />
+        <button className='add_form_button' onClick={closeForm}></button>
+        <h1 className='add_form_title'>{state.title}</h1>
+        <FilmFormInputList film={film} setFilm={setFilm} />
         <Button {...buttonContent.resetButton} />
         <Button {...buttonContent.submitButton} onClick={handleClick} />
       </div>

@@ -1,5 +1,5 @@
-import './search-panel.css';
-import Button from '../button';
+import { Button } from 'components';
+import './style.css';
 
 const SearchPanel = ({ buttonContent }) => (
   <div className='search_panel'>

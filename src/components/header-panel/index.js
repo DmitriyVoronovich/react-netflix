@@ -1,15 +1,22 @@
-import Logo from '../logo';
-import SearchPanel from '../search-panel';
-import Button from '../button';
-import { buttonContent } from '../../constants/const';
+import { useContext, useEffect } from 'react';
+import { Button, Logo, SearchPanel } from 'components';
+import { buttonContent, dispatcherTypes } from 'consts';
+import { AppContext } from 'context/context';
+import './style.css';
 
-import './header-panel.css';
-import { useEffect } from 'react';
+const { FORM } = dispatcherTypes;
 
-const HeaderPanel = ({ onAddFilm }) => {
+const HeaderPanel = () => {
+  const { dispatch } = useContext(AppContext);
+
   useEffect(() => {
     document.body.style.overflow = `visible`;
-  });
+  }, []);
+
+  const onAddFilm = () =>
+    dispatch({
+      type: FORM
+    });
 
   return (
     <div className='heard_panel_background'>

@@ -1,4 +1,4 @@
-import './logo.css';
+import './style.css';
 
 const Logo = () => (
   <>

@@ -1,14 +1,14 @@
-import './film-form-input-list.css';
 import React from 'react';
 import {
   Checkbox,
   FormControl,
-  InputLabel,
   ListItemText,
   MenuItem,
   OutlinedInput,
   Select
 } from '@mui/material';
+import { genres } from 'consts';
+import './style.css';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,15 +20,15 @@ const MenuProps = {
     }
   }
 };
-const genres = ['Crime', 'Documentary', 'Horror', 'Comedy'];
-const SelectInput = ({ handleInputChange }) => {
-  const [personName, setPersonName] = React.useState([]);
+
+const SelectInput = ({ filmGenres }) => {
+  const [genreName, setGenreName] = React.useState([filmGenres]);
 
   const handleChange = event => {
     const {
       target: { value }
     } = event;
-    setPersonName(typeof value === 'string' ? value.split(',') : value);
+    setGenreName(typeof value === 'string' ? value.split(',') : value);
   };
 
   return (
@@ -43,7 +43,7 @@ const SelectInput = ({ handleInputChange }) => {
           labelId='demo-multiple-checkbox-label'
           id='demo-multiple-checkbox'
           multiple
-          value={personName}
+          value={genreName}
           onChange={handleChange}
           input={<OutlinedInput label='Select Genre' />}
           renderValue={selected => selected.join(', ')}
@@ -55,7 +55,7 @@ const SelectInput = ({ handleInputChange }) => {
               value={name}
               style={{ color: '#fff', background: 'rgba(35, 35, 35, 0.92)' }}
             >
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={genreName.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}

@@ -1,19 +1,26 @@
-import React from 'react';
-import Logo from '../logo';
-import './film-card-information.css';
+import React, { useContext } from 'react';
+import { Logo } from 'components';
+import { dispatcherTypes } from 'consts';
+import { AppContext } from 'context';
+import './style.css';
 
-const FilmCardInformation = ({ film, setFilmInfo }) => {
-  const { img, name, year, genres, rating, time, description } = film;
+const { CLOSE_INFO } = dispatcherTypes;
+
+const FilmCardInformation = () => {
+  const { state, dispatch } = useContext(AppContext);
+
+  const closeInfo = () => dispatch({ type: CLOSE_INFO });
+
+  const {
+    film: { img, name, year, genres, rating, time, description }
+  } = state;
 
   return (
     <div className='card_module'>
       <div className='logo_container'>
         <Logo />
       </div>
-      <button
-        className='card_button'
-        onClick={() => setFilmInfo(false)}
-      ></button>
+      <button className='card_button' onClick={closeInfo}></button>
       <div className='card_container'>
         <img className='card_img' src={img} alt='Обложка фильма' />
         <div className='card_info_container'>

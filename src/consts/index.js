@@ -10,7 +10,7 @@ export const filmList = [
     img: film1,
     name: 'Pulp Fiction',
     year: '2004',
-    genres: 'Action & Adventure',
+    genres: ['Action & Adventure'],
     id: 1,
     rating: '8,6',
     time: '2h 34minute',
@@ -21,7 +21,7 @@ In the first story, Vincent spends an unforgettable evening with Marsellus' wife
     img: film2,
     name: 'Bohemian Rhapsody',
     year: '2003',
-    genres: 'Drama, Biography, Music',
+    genres: ['Drama', 'Biography', 'Music'],
     id: 2,
     rating: '8.0',
     time: '2h 14minute',
@@ -31,7 +31,7 @@ In the first story, Vincent spends an unforgettable evening with Marsellus' wife
     img: film3,
     name: 'Kill Bill: Vol 2',
     year: '1994',
-    genres: 'Oscar winning Movie',
+    genres: ['Oscar winning Movie'],
     id: 3,
     rating: '7.6',
     time: '2h 17minute',
@@ -41,7 +41,7 @@ In the first story, Vincent spends an unforgettable evening with Marsellus' wife
     img: film4,
     name: 'Avengers: War of Infinity',
     year: '2004',
-    genres: 'Action & Adventure',
+    genres: ['Action & Adventure'],
     id: 4,
     rating: '8.1',
     time: '2h 29minute',
@@ -51,7 +51,7 @@ In the first story, Vincent spends an unforgettable evening with Marsellus' wife
     img: film5,
     name: 'Inception',
     year: '2003',
-    genres: 'Action & Adventure',
+    genres: ['Action & Adventure'],
     id: 5,
     rating: '8.7',
     time: '2h 28minute',
@@ -62,7 +62,7 @@ But no amount of planning or skill can prepare a team to face a dangerous foe th
     img: film6,
     name: 'Reservoir dogs',
     year: '1994',
-    genres: 'Oscar winning Movie',
+    genres: ['Oscar winning Movie'],
     id: 6,
     rating: '8.1',
     time: '1h 40minute',
@@ -135,3 +135,24 @@ export const inputInfo = [
     placeholder: 'Movie description'
   }
 ];
+
+export const genres = [
+  'Action & Adventure',
+  'Drama',
+  'Horror',
+  'Comedy',
+  'Biography',
+  'Oscar winning Movie'
+];
+
+export const dispatcherTypes = {
+  DELETE: 'delete',
+  CLOSE_MOVIE_FORM: 'close_movie_form',
+  CLOSE_SUCCESS_MODAL: 'close_success_modal',
+  CLOSE_INFO: 'close_info',
+  SUBMIT: 'submit',
+  FORM: 'form',
+  INFO: 'info',
+  EDIT: 'edit',
+  CLOSE_DELETE_MODAL: 'close_delete_modal'
+};

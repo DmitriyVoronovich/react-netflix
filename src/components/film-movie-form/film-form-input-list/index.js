@@ -1,11 +1,11 @@
-import './film-form-input-list.css';
-import { ErrorMessage, Field, Form, Formik, useField } from 'formik';
+import { inputInfo } from 'consts';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import TextInput from './textInput';
-import { inputInfo } from '../../../constants/const';
 import SelectInput from './selectInput';
+import './style.css';
+import TextInput from './textInput';
 
-const FilmFormInputList = ({ setFilm, film }) => {
+const FilmFormInputList = ({ film, setFilm }) => {
   const handleInputChange = (e, fieldName) => {
     const changedFilm = { ...film };
     changedFilm[fieldName] = e.target.value;
@@ -18,6 +18,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
     return (
       <TextInput
         key={id}
+        value={film[itemProps.name]}
         {...itemProps}
         handleInputChange={handleInputChange}
       />
@@ -31,6 +32,7 @@ const FilmFormInputList = ({ setFilm, film }) => {
       <TextInput
         key={id}
         {...itemProps}
+        value={film[itemProps.name]}
         handleInputChange={handleInputChange}
       />
     );
@@ -68,7 +70,10 @@ const FilmFormInputList = ({ setFilm, film }) => {
     >
       <Form className='film_form_input_list'>
         {firstPart}
-        <SelectInput handleInputChange={handleInputChange} film={film} />
+        <SelectInput
+          handleInputChange={handleInputChange}
+          filmGenres={film.genres}
+        />
         {secondPart}
       </Form>
     </Formik>
