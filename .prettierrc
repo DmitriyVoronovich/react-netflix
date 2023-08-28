@@ -9,9 +9,7 @@
   "arrowParens": "avoid",
   "requirePragma": false,
   "proseWrap": "preserve",
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
-  ],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
     "^(react|redux)(.*)",
     "<THIRD_PARTY_MODULES>",

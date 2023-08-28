@@ -7,7 +7,7 @@ import {
   OutlinedInput,
   Select
 } from '@mui/material';
-import { genres } from 'constants/const';
+import { genres } from 'consts';
 import './style.css';
 
 const ITEM_HEIGHT = 48;

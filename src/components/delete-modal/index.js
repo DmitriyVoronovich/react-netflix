@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
-import { buttonContent, dispatcherTypes } from 'constants/const';
-import { AppContext } from 'context/context';
-import { Button, Footer, Logo } from '../index';
+import { Button, Footer, Logo } from 'components';
+import { buttonContent, dispatcherTypes } from 'consts';
+import { AppContext } from 'context';
 import './style.css';
 
 const { CLOSE_DELETE_MODAL } = dispatcherTypes;

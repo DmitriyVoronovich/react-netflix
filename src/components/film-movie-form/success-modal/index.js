@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { dispatcherTypes } from 'constants/const';
-import { AppContext } from 'context/context';
+import { dispatcherTypes } from 'consts';
+import { AppContext } from 'context';
 import { Footer, Logo } from '../../index';
 import suc from './img/group.png';
 import './style.css';

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { buttonContent, dispatcherTypes } from 'constants/const';
-import { AppContext } from 'context/context';
+import { Button } from 'components';
+import { buttonContent, dispatcherTypes } from 'consts';
+import { AppContext } from 'context';
 import close from '../film-movie-form/movie-form/img/CloseButton.png';
-import { Button } from '../index';
 import './style.css';
 
 const { DELETE, EDIT, INFO } = dispatcherTypes;

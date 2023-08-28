@@ -1,9 +1,7 @@
 import { useContext, useEffect } from 'react';
-import { buttonContent, dispatcherTypes } from 'constants/const';
+import { Button, Logo, SearchPanel } from 'components';
+import { buttonContent, dispatcherTypes } from 'consts';
 import { AppContext } from 'context/context';
-import Button from '../button';
-import Logo from '../logo';
-import SearchPanel from '../search-panel';
 import './style.css';
 
 const { FORM } = dispatcherTypes;

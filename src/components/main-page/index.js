@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AppContext } from 'context/context';
-import { FilmList, Footer, GenresMenu, NumberOfFilms } from '../index';
+import { FilmList, Footer, GenresMenu, NumberOfFilms } from 'components';
+import { AppContext } from 'context';
 import './style.css';
 
 const MainPage = () => {

@@ -1,4 +1,4 @@
-import { inputInfo } from 'constants/const';
+import { inputInfo } from 'consts';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import SelectInput from './selectInput';

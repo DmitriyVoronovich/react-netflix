@@ -1,5 +1,5 @@
-import { defaultFilm } from 'constants/const';
-import { dispatcherTypes } from 'constants/const';
+import { defaultFilm } from 'consts';
+import { dispatcherTypes } from 'consts';
 
 export const reducer = (state, action) => {
   const { isMovieDeleted, films } = state;
